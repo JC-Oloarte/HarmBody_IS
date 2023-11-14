@@ -19,6 +19,7 @@ return new class extends Migration
             // Definir las restricciones de clave foránea
             $table->foreign('id_permiso')->references('id_permiso')->on('permiso_cat');
             $table->foreign('id_rol')->references('id_rol')->on('rol_cat');
+            $table->timestamps();
         });
     }
 

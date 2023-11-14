@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('Nombre');
             $table->string('Descripcion');
             $table->tinyInteger('Estatus')->default(0); // Campo TINYINT con valor predeterminado 0
+            $table->timestamps();
         });
     }
 

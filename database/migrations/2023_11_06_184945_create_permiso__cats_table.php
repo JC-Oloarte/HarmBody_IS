@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('Nombre'); // Atributo de tipo string
             $table->date('Fecha_de_alta'); // Atributo de tipo Date
             $table->tinyInteger('Estatus')->default(0); // Atributo de tipo TINYINT con valor predeterminado 0
+            $table->timestamps();
         });
     }
 

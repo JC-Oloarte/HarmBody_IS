@@ -21,6 +21,7 @@ return new class extends Migration
             $table->bigInteger('Telefono')->unique();
             $table->string('Correo_Electronico')->unique(); // Campo único para MySQL
             $table->date('Fecha_Nac'); // Campo de tipo DATE para la fecha de nacimiento
+            $table->timestamps();
         });
     }
 

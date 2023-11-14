@@ -23,6 +23,7 @@ return new class extends Migration
             // Definir las restricciones de clave foránea
             $table->foreign('id_rutina')->references('id_rutina')->on('rutinas');
             $table->foreign('id_ejercicio')->references('id_ejercicio')->on('ejercicios');
+            $table->timestamps();
         });
     }
 

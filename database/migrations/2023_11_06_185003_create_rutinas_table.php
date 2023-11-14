@@ -24,6 +24,7 @@ return new class extends Migration
             // Definir las restricciones de clave foránea
             $table->foreign('id_paciente')->references('id_paciente')->on('pacientes');
             $table->foreign('id_usuario')->references('id_usuario')->on('usuarios');
+            $table->timestamps();
         });
     }
 
