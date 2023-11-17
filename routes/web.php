@@ -19,9 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/usuarios', function () {
-    return view('Usuarios.index');
-});
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,3 +28,11 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/usuarios', UsuarioController::class);
+Route::resource('/ejercicios', App\Http\Controllers\EjercicioController::class);
+Route::resource('/pacientes', App\Http\Controllers\PacienteController::class);
+Route::resource('/detalle-rutinas', App\Http\Controllers\DetalleRutinaController::class);
+Route::resource('/detalle-per-rols', App\Http\Controllers\DetallePerRolController::class);
+Route::resource('/permisocat', App\Http\Controllers\PermisoCatController::class);
+Route::resource('/rolcat', App\Http\Controllers\RolCatController::class);
+Route::resource('/rutina', App\Http\Controllers\RutinaController::class);
+Route::resource('/usuariodetalle', App\Http\Controllers\UsuarioDetalleController::class);

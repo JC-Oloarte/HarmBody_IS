@@ -5,30 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Ejercicio
+ * Class PermisoCat
  *
- * @property $id_ejercicio
+ * @property $id_permiso
  * @property $Nombre
- * @property $Descripcion
+ * @property $Fecha_de_alta
  * @property $Estatus
  * @property $created_at
  * @property $updated_at
  *
- * @property DetalleRutina[] $detalleRutinas
+ * @property DetallePerRol[] $detallePerRols
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Ejercicio extends Model
+class PermisoCat extends Model
 {
     
     static $rules = [
-		'id_ejercicio' => 'required',
+		'id_permiso' => 'required',
 		'Nombre' => 'required',
-		'Descripcion' => 'required',
+		'Fecha_de_alta' => 'required',
 		'Estatus' => 'required',
     ];
-
-    protected $primaryKey = 'id_ejercicio';
 
     protected $perPage = 20;
 
@@ -37,15 +35,15 @@ class Ejercicio extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_ejercicio','Nombre','Descripcion','Estatus'];
+    protected $fillable = ['id_permiso','Nombre','Fecha_de_alta','Estatus'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function detalleRutinas()
+    public function detallePerRols()
     {
-        return $this->hasMany('App\Models\DetalleRutina', 'id_ejercicio', 'id_ejercicio');
+        return $this->hasMany('App\Models\DetallePerRol', 'id_permiso', 'id_permiso');
     }
     
 
