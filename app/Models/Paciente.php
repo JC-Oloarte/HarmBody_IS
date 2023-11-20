@@ -36,6 +36,8 @@ class Paciente extends Model
 		'Fecha_Nac' => 'required',
     ];
 
+    
+    protected $table= 'pacientes';
     protected $primaryKey = 'id_Paciente';
     protected $perPage = 20;
 

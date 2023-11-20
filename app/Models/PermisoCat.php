@@ -28,6 +28,8 @@ class PermisoCat extends Model
 		'Estatus' => 'required',
     ];
 
+    protected $primaryKey = 'id_permiso';
+    protected $table= 'permiso_cat';
     protected $perPage = 20;
 
     /**

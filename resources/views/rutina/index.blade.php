@@ -121,15 +121,15 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item"
-                                                           href="{{ route('rutinas.show',$rutina->id) }}">
+                                                           href="{{ route('rutinas.show',$rutina->id_rutina) }}">
                                                             View
                                                         </a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('rutinas.edit',$rutina->id) }}">
+                                                           href="{{ route('rutinas.edit',$rutina->id_rutina) }}">
                                                             Edit
                                                         </a>
                                                         <form
-                                                            action="{{ route('rutinas.destroy',$rutina->id) }}"
+                                                            action="{{ route('rutinas.destroy',$rutina->id_rutina) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

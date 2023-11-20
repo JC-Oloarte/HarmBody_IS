@@ -123,15 +123,15 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item"
-                                                           href="{{ route('pacientes.show',$paciente->id) }}">
+                                                           href="{{ route('pacientes.show',$paciente->id_Paciente) }}">
                                                             View
                                                         </a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('pacientes.edit',$paciente->id) }}">
+                                                           href="{{ route('pacientes.edit',$paciente->id_Paciente) }}">
                                                             Edit
                                                         </a>
                                                         <form
-                                                            action="{{ route('pacientes.destroy',$paciente->id) }}"
+                                                            action="{{ route('pacientes.destroy',$paciente->id_Paciente) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

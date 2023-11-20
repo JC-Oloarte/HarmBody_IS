@@ -49,7 +49,7 @@
                         </div>
                         <div class="card-body">
                             <form method="POST"
-                                  action="{{ route('permiso-cats.update', $permisoCat->id) }}" id="ajaxForm" role="form"
+                                  action="{{ route('permiso-cats.update', $permisoCat->id_permiso) }}" id="ajaxForm" role="form"
                                   enctype="multipart/form-data">
                                 {{ method_field('PATCH') }}
                                 @csrf

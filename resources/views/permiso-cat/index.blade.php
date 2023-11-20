@@ -115,15 +115,15 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item"
-                                                           href="{{ route('permiso-cats.show',$permisoCat->id) }}">
+                                                           href="{{ route('permiso-cats.show',$permisoCat->id_permiso) }}">
                                                             View
                                                         </a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('permiso-cats.edit',$permisoCat->id) }}">
+                                                           href="{{ route('permiso-cats.edit',$permisoCat->id_permiso) }}">
                                                             Edit
                                                         </a>
                                                         <form
-                                                            action="{{ route('permiso-cats.destroy',$permisoCat->id) }}"
+                                                            action="{{ route('permiso-cats.destroy',$permisoCat->id_permiso) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

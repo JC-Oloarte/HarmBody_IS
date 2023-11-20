@@ -32,6 +32,8 @@ class Usuario extends Model
 		'Estatus' => 'required',
     ];
 
+    protected $table= 'usuarios';
+    protected $primaryKey = 'id_usuario';
     protected $perPage = 20;
 
     /**

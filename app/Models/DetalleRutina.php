@@ -32,8 +32,9 @@ class DetalleRutina extends Model
 		'Repeticiones' => 'required',
 		'Estatus' => 'required',
     ];
-
+    
     protected $primaryKey = 'id_rutina_det';
+    protected $table= 'detalle_rutinas';
 
     protected $perPage = 20;
 

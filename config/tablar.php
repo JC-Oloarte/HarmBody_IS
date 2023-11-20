@@ -60,7 +60,7 @@ return [
     |
     */
 
-    'layout' => 'horizontal',
+    'layout' => 'vertical',
     //boxed, combo, condensed, fluid, fluid-vertical, horizontal, navbar-overlap, navbar-sticky, rtl, vertical, vertical-right, vertical-transparent
 
     'layout_light_sidebar' => null,
@@ -130,6 +130,26 @@ return [
             'url' => '/home'
         ],
 
+        [
+            'text' => 'Usuarios',
+            'url' => '/usuarios'
+        ],
+        [
+            'text' => 'Roles',
+            'url' => '/rol-cats'
+        ],
+        [
+            'text' => 'Permisos',
+            'url' => '/permiso-cats'
+        ],
+        [
+            'text' => 'Pacientes',
+            'url' => '/pacientes'
+        ],
+        [
+            'text' => 'Rutinas',
+            'url' => '/rutinas'
+        ],
         [
             'text' => 'Ejercicios',
             'url' => '/ejercicios'

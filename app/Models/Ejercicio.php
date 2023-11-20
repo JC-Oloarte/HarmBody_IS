@@ -28,6 +28,7 @@ class Ejercicio extends Model
 		'Estatus' => 'required',
     ];
 
+    protected $table= 'ejercicios';
     protected $primaryKey = 'id_ejercicio';
 
     protected $perPage = 20;

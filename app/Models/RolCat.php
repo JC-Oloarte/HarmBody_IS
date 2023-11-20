@@ -28,6 +28,8 @@ class RolCat extends Model
 		'Fecha_de_alta' => 'required',
 		'Estatus' => 'required',
     ];
+    protected $table= 'rol_cat';
+    protected $primaryKey = 'id_rol';
 
     protected $perPage = 20;
 

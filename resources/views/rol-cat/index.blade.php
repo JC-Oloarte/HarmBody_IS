@@ -115,15 +115,15 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item"
-                                                           href="{{ route('rol-cats.show',$rolCat->id) }}">
+                                                           href="{{ route('rol-cats.show',$rolCat->id_rol) }}">
                                                             View
                                                         </a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('rol-cats.edit',$rolCat->id) }}">
+                                                           href="{{ route('rol-cats.edit',$rolCat->id_rol) }}">
                                                             Edit
                                                         </a>
                                                         <form
-                                                            action="{{ route('rol-cats.destroy',$rolCat->id) }}"
+                                                            action="{{ route('rol-cats.destroy',$rolCat->id_rol) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

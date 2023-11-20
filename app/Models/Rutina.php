@@ -36,6 +36,8 @@ class Rutina extends Model
 		'Fecha_Rutina' => 'required',
     ];
 
+    protected $table= 'rutinas';
+    protected $primaryKey = 'id_rutina';
     protected $perPage = 20;
 
     /**
