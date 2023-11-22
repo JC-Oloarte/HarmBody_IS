@@ -3,11 +3,8 @@
         <div class="row text-center align-items-center flex-row-reverse">
             <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item"><a href="https://github.com/takielias/tablar" target="_blank"
-                                                    class="link-secondary" rel="noopener">Source code</a></li>
+                    <li class="list-inline-item">HarmBody</li>
                     <li class="list-inline-item">
-                        <a href="https://www.buymeacoffee.com/takielias" target="_blank" class="link-secondary"
-                           rel="noopener">
                             <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon text-pink icon-filled icon-inline" width="24" height="24"
@@ -17,23 +14,18 @@
                                 <path
                                     d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
                             </svg>
-                            Sponsor
-                        </a>
+                            Ingeniería de software
                     </li>
                 </ul>
             </div>
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
-                        Copyright &copy; 2022
-                        <a href="https://ebuz.xyz"
-                           class="link-secondary">{{config('tablar.bottom_title', 'TabLar')}}</a>.
-                        All rights reserved.
+                        Copyright &copy; 2023
+                        Todos los derechos NO reservados
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://ebuz.xyz" class="link-secondary" rel="noopener">
-                            {{config('tablar.current_version', '1.0')}}
-                        </a>
+                        TecNM
                     </li>
                 </ul>
             </div>
