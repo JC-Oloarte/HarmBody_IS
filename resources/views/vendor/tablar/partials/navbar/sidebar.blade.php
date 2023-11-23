@@ -150,7 +150,27 @@
             <ul class="navbar-nav pt-lg-3">
                 @each('tablar::partials.navbar.dropdown-item',$tablar->menu('sidebar'), 'item')
             </ul>
+            
+            @php( $logout_url = View::getSection('logout_url') ?? config('tablar.logout_url', 'logout') )
+
+            @if (config('tablar.use_route_url', true))
+                @php( $logout_url = $logout_url ? route($logout_url) : '' )
+            @else
+                @php( $logout_url = $logout_url ? url($logout_url) : '' )
+            @endif
+
+            <button style="margin-left: 10px; margin-bottom: 20px;" class="btn btn-primary w-80" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar Sesión
+            </button>
+        
+            <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
+                @if(config('tablar.logout_method'))
+                    {{ method_field(config('tablar.logout_method')) }}
+                @endif
+                    {{ csrf_field() }}
+            </form>
         </div>
+        
     </div>
 </aside>
 
