@@ -14,7 +14,7 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="name"
                                placeholder="mi_correo@email.com"
                                autocomplete="off">
                         @error('email')

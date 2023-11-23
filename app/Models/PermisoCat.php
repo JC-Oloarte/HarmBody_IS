@@ -47,6 +47,11 @@ class PermisoCat extends Model
     {
         return $this->hasMany('App\Models\DetallePerRol', 'id_permiso', 'id_permiso');
     }
+
+    public function getPermisos()
+    {
+      
+    }
     
 
 }

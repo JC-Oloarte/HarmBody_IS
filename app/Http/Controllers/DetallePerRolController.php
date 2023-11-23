@@ -19,7 +19,6 @@ class DetallePerRolController extends Controller
     public function index()
     {
         $detallePerRols = DetallePerRol::paginate(10);
-
         return view('detalle-per-rol.index', compact('detallePerRols'))
             ->with('i', (request()->input('page', 1) - 1) * $detallePerRols->perPage());
     }

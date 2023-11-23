@@ -1,13 +1,3 @@
-
-<div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_usuario') }}</label>
-    <div>
-        {{ Form::text('id_usuario', $usuario->id_usuario, ['class' => 'form-control' .
-        ($errors->has('id_usuario') ? ' is-invalid' : ''), 'placeholder' => 'Id Usuario']) }}
-        {!! $errors->first('id_usuario', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">usuario <b>id_usuario</b> instruction.</small>
-    </div>
-</div>
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('NomUsuario') }}</label>
     <div>
@@ -17,6 +7,7 @@
         <small class="form-hint">usuario <b>NomUsuario</b> instruction.</small>
     </div>
 </div>
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Passw') }}</label>
     <div>
@@ -26,6 +17,7 @@
         <small class="form-hint">usuario <b>Passw</b> instruction.</small>
     </div>
 </div>
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('id_rol') }}</label>
     <div>
@@ -35,6 +27,7 @@
         <small class="form-hint">usuario <b>id_rol</b> instruction.</small>
     </div>
 </div>
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Estatus') }}</label>
     <div>
@@ -48,7 +41,7 @@
     <div class="form-footer">
         <div class="text-end">
             <div class="d-flex">
-                <a href="#" class="btn btn-danger">Cancel</a>
+                <a href="/usuarios" class="btn btn-danger">Cancel</a>
                 <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
             </div>
         </div>
