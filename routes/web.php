@@ -3,7 +3,7 @@
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,14 +20,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/home/{id_user}', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/usuarios', UsuarioController::class);
+Route::resource('/home/{id_user}/usuarios', UsuarioController::class);
+
 Route::resource('/ejercicios', App\Http\Controllers\EjercicioController::class);
 Route::resource('/pacientes', App\Http\Controllers\PacienteController::class);
 Route::resource('/detalle-rutinas', App\Http\Controllers\DetalleRutinaController::class);

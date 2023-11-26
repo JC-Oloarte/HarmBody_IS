@@ -48,7 +48,7 @@ class EjercicioController extends Controller
         $ejercicio = Ejercicio::create($request->all());
 
         return redirect()->route('ejercicios.index')
-            ->with('success', 'Ejercicio created successfully.');
+            ->with('success', 'Ejercicio registrado correctamente');
     }
 
     /**
@@ -86,12 +86,29 @@ class EjercicioController extends Controller
      */
     public function update(Request $request, Ejercicio $ejercicio)
     {
+        // Validar la solicitud
         request()->validate(Ejercicio::$rules);
-
+    
+        // Obtener los valores actuales del modelo antes de la actualización
+        $valoresAntes = $ejercicio->getAttributes();
+    
+        // Actualizar el modelo con los datos de la solicitud
         $ejercicio->update($request->all());
-
-        return redirect()->route('ejercicios.index')
-            ->with('success', 'Ejercicio updated successfully');
+    
+        // Obtener los valores actualizados después de la actualización
+        $valoresDespués = $ejercicio->fresh()->getAttributes();
+    
+        // Comparar los valores antes y después
+        $cambios = array_diff_assoc($valoresDespués, $valoresAntes);
+    
+        // Verificar si hay cambios
+        if (count($cambios) > 0) {
+            return redirect()->route('ejercicios.index')
+                ->with('success', 'Ejercicio actualizado con éxito');
+        } else {
+            return redirect()->route('ejercicios.index')
+                ->with('alert', 'No se realizaron cambios en el ejercicio');
+        }
     }
 
     /**
@@ -104,6 +121,6 @@ class EjercicioController extends Controller
         $ejercicio = Ejercicio::find($id)->delete();
 
         return redirect()->route('ejercicios.index')
-            ->with('success', 'Ejercicio deleted successfully');
+            ->with('success', 'Ejercicio eliminado con éxito');
     }
 }

@@ -21,8 +21,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /**
+     * Show the application dashboard.
+     *
+     * @param  int  $id_user
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index($id_user)
     {
-        return view('home');
+        // Lógica de la página de inicio
+
+        return view('home', compact('id_user'));
     }
 }

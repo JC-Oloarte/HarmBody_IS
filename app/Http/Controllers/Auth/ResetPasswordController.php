@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-
+use Illuminate\Support\Facades\Auth;
 class ResetPasswordController extends Controller
 {
     /*
@@ -21,10 +21,19 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-    /**
-     * Where to redirect users after resetting their password.
+      /**
+     * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    /**
+     * Get the post login redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        // Redireccionar a la ruta home con el id_user como parámetro
+        return route('home', ['id_user' => Auth::id()]);
+    }
 }

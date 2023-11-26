@@ -22,7 +22,6 @@ class Ejercicio extends Model
 {
     
     static $rules = [
-		'id_ejercicio' => 'required',
 		'Nombre' => 'required',
 		'Descripcion' => 'required',
 		'Estatus' => 'required',

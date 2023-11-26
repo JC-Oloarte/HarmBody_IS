@@ -10,4 +10,8 @@
     <div class="alert alert-danger" role="alert">
         <div class="text-muted">{{Session('error')}}</div>
     </div>
+@elseif(Session::has('alert'))
+    <div class="alert alert-danger" role="alert">
+        <div class="text-muted">{{Session('alert')}}</div>
+    </div>
 @endif

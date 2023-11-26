@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Auth;
 class RegisterController extends Controller
 {
     /*
@@ -24,13 +24,21 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
+      /**
+     * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    /**
+     * Get the post login redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        // Redireccionar a la ruta home con el id_user como parámetro
+        return route('home', ['id_user' => Auth::id()]);
+    }
     /**
      * Create a new controller instance.
      *

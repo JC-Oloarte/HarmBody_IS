@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
-
+use Illuminate\Support\Facades\Auth;
 class VerificationController extends Controller
 {
     /*
@@ -21,13 +21,21 @@ class VerificationController extends Controller
 
     use VerifiesEmails;
 
-    /**
-     * Where to redirect users after verification.
+      /**
+     * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    /**
+     * Get the post login redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        // Redireccionar a la ruta home con el id_user como parámetro
+        return route('home', ['id_user' => Auth::id()]);
+    }
     /**
      * Create a new controller instance.
      *

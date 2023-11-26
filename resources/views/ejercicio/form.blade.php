@@ -1,20 +1,10 @@
-
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_ejercicio') }}</label>
-    <div>
-        {{ Form::text('id_ejercicio', $ejercicio->id_ejercicio, ['class' => 'form-control' .
-        ($errors->has('id_ejercicio') ? ' is-invalid' : ''), 'placeholder' => 'Id Ejercicio']) }}
-        {!! $errors->first('id_ejercicio', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">ejercicio <b>id_ejercicio</b> instruction.</small>
-    </div>
-</div>
-<div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('Nombre') }}</label>
+    <label class="form-label">   {{ Form::label('Nombre del ejercicio') }}</label>
     <div>
         {{ Form::text('Nombre', $ejercicio->Nombre, ['class' => 'form-control' .
         ($errors->has('Nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
         {!! $errors->first('Nombre', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">ejercicio <b>Nombre</b> instruction.</small>
+        <small class="form-hint">Ingresa el nombre del ejercicio. Ej <b>Estiramiento de Espalda Baja</small>
     </div>
 </div>
 <div class="form-group mb-3">
@@ -23,24 +13,25 @@
         {{ Form::text('Descripcion', $ejercicio->Descripcion, ['class' => 'form-control' .
         ($errors->has('Descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
         {!! $errors->first('Descripcion', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">ejercicio <b>Descripcion</b> instruction.</small>
+        <small class="form-hint">Ingresa la descripción del ejercicio. Ej <b>Este ejercicio está diseñado para...</b></small>
     </div>
 </div>
+
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('Estatus') }}</label>
+    <label class="form-label">{{ Form::label('Estatus', 'Estatus') }}</label>
     <div>
-        {{ Form::text('Estatus', $ejercicio->Estatus, ['class' => 'form-control' .
-        ($errors->has('Estatus') ? ' is-invalid' : ''), 'placeholder' => 'Estatus']) }}
+        {{ Form::select('Estatus', ['1' => 'Activo', '0' => 'Inactivo'], $ejercicio->Estatus, ['class' => 'form-control' . ($errors->has('Estatus') ? ' is-invalid' : '')]) }}
         {!! $errors->first('Estatus', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">ejercicio <b>Estatus</b> instruction.</small>
+        <small class="form-hint">Elige el estatus del ejercicio (<b>Activo</b> o <b>Inactivo</b>).</small>
     </div>
 </div>
 
     <div class="form-footer">
         <div class="text-end">
             <div class="d-flex">
-                <a href="#" class="btn btn-danger">Cancel</a>
-                <button type="submit" class="btn btn-primary ms-auto ajax-submit">Submit</button>
+                <a href="{{ route('ejercicios.index') }}" class="btn btn-danger">Cancelar</a>
+                
+                <button type="submit" class="btn btn-success ms-auto ajax-submit">Añadir</button>
             </div>
         </div>
     </div>

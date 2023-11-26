@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
-
+use Illuminate\Support\Facades\Auth;
 class ConfirmPasswordController extends Controller
 {
     /*
@@ -21,13 +21,21 @@ class ConfirmPasswordController extends Controller
 
     use ConfirmsPasswords;
 
-    /**
-     * Where to redirect users when the intended url fails.
+      /**
+     * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    /**
+     * Get the post login redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        // Redireccionar a la ruta home con el id_user como parámetro
+        return route('home', ['id_user' => Auth::id()]);
+    }
     /**
      * Create a new controller instance.
      *

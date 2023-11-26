@@ -106,4 +106,5 @@ class RutinaController extends Controller
         return redirect()->route('rutinas.index')
             ->with('success', 'Rutina deleted successfully');
     }
+    
 }

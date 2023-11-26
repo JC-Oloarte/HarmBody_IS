@@ -23,6 +23,7 @@
             @endif
             {{-- Custom Stylesheets (post Tablar) --}}
             @yield('tablar_css')
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/limite-texto.css') }}">
         </head>
         <body class="@yield('classes_body')" @yield('body_data')>
         @yield('body')
