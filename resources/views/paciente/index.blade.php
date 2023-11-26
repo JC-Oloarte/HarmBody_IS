@@ -10,12 +10,9 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center">
                 <div class="col">
-                    <!-- Page pre-title -->
-                    <div class="page-pretitle">
-                        List
-                    </div>
+                    
                     <h2 class="page-title">
-                        {{ __('Paciente ') }}
+                        {{ __('Pacientes') }}
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -30,7 +27,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Create Paciente
+                            Agregar paciente
                         </a>
                     </div>
                 </div>
@@ -47,8 +44,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Paciente</h3>
+                            <h3 class="card-title">Lista de pacientes</h3>
                         </div>
+<!--
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
                                 <div class="text-muted">
@@ -68,12 +66,11 @@
                                 </div>
                             </div>
                         </div>
+-->
                         <div class="table-responsive min-vh-100">
                             <table class="table card-table table-vcenter text-nowrap datatable">
                                 <thead>
                                 <tr>
-                                    <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                           aria-label="Select all invoices"></th>
                                     <th class="w-1">No.
                                         <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +82,6 @@
                                         </svg>
                                     </th>
                                     
-										<th>Id Paciente</th>
 										<th>Nombre</th>
 										<th>Ap Paterno</th>
 										<th>Ap Materno</th>
@@ -101,11 +97,8 @@
                                 <tbody>
                                 @forelse ($pacientes as $paciente)
                                     <tr>
-                                        <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                   aria-label="Select paciente"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $paciente->id_Paciente }}</td>
 											<td>{{ $paciente->Nombre }}</td>
 											<td>{{ $paciente->Ap_Paterno }}</td>
 											<td>{{ $paciente->Ap_Materno }}</td>

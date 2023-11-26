@@ -48,7 +48,7 @@ class PacienteController extends Controller
         $paciente = Paciente::create($request->all());
 
         return redirect()->route('pacientes.index')
-            ->with('success', 'Paciente created successfully.');
+            ->with('success', 'Paciente registrado con éxito');
     }
 
     /**
@@ -86,12 +86,29 @@ class PacienteController extends Controller
      */
     public function update(Request $request, Paciente $paciente)
     {
+        // Validar la solicitud
         request()->validate(Paciente::$rules);
-
+    
+        // Obtener los valores actuales del modelo antes de la actualización
+        $valoresAntes = $paciente->getAttributes();
+    
+        // Actualizar el modelo con los datos de la solicitud
         $paciente->update($request->all());
-
-        return redirect()->route('pacientes.index')
-            ->with('success', 'Paciente updated successfully');
+    
+        // Obtener los valores actualizados después de la actualización
+        $valoresDespués = $paciente->fresh()->getAttributes();
+    
+        // Comparar los valores antes y después
+        $cambios = array_diff_assoc($valoresDespués, $valoresAntes);
+    
+        // Verificar si hay cambios
+        if (count($cambios) > 0) {
+            return redirect()->route('pacientes.index')
+                ->with('success', 'Paciente actualizado con éxito');
+        } else {
+            return redirect()->route('pacientes.index')
+                ->with('alert', 'No hay ningún cambio a realizar');
+        }
     }
 
     /**
@@ -104,6 +121,6 @@ class PacienteController extends Controller
         $paciente = Paciente::find($id)->delete();
 
         return redirect()->route('pacientes.index')
-            ->with('success', 'Paciente deleted successfully');
+            ->with('success', 'Paciente eliminado con éxito');
     }
 }

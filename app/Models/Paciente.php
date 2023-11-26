@@ -26,14 +26,13 @@ class Paciente extends Model
 {
     
     static $rules = [
-		'id_Paciente' => 'required',
 		'Nombre' => 'required',
 		'Ap_Paterno' => 'required',
 		'Ap_Materno' => 'required',
 		'Domicilio' => 'required',
 		'Telefono' => 'required',
 		'Correo_Electronico' => 'required',
-		'Fecha_Nac' => 'required',
+		'Fecha_Nac' => ['required', 'date', 'date_format:Y-m-d'],
     ];
 
     
