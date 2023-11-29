@@ -1,10 +1,3 @@
-@extends('tablar::page')
-
-@section('title')
-    Detalle Per Rol
-@endsection
-
-@section('content')
     <!-- Page header -->
     <div class="page-header d-print-none">
         <div class="container-xl">
@@ -84,7 +77,7 @@
                                             <polyline points="6 15 12 9 18 15"/>
                                         </svg>
                                     </th>
-                                    
+
 										<th>Id Permiso</th>
 										<th>Id Rol</th>
 										<th>Estatus</th>
@@ -112,16 +105,8 @@
                                                         Actions
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('detalle-per-rols.show',$detallePerRol->id) }}">
-                                                            View
-                                                        </a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('detalle-per-rols.edit',$detallePerRol->id) }}">
-                                                            Edit
-                                                        </a>
                                                         <form
-                                                            action="{{ route('detalle-per-rols.destroy',$detallePerRol->id) }}"
+                                                            action="{{ route('detalle-per-rols.destroy',$detallePerRol->id_rol,$detallePerRol->id_det_rol) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -144,12 +129,8 @@
 
                             </table>
                         </div>
-                       <div class="card-footer d-flex align-items-center">
-                            {!! $detallePerRols->links('tablar::pagination') !!}
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection

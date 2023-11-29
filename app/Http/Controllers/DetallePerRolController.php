@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetallePerRol;
+use App\Models\RolCat;
+use App\Models\PermisoCat;
 use Illuminate\Http\Request;
 
 /**
@@ -31,7 +33,9 @@ class DetallePerRolController extends Controller
     public function create()
     {
         $detallePerRol = new DetallePerRol();
-        return view('detalle-per-rol.create', compact('detallePerRol'));
+        $rolCat = RolCat::pluck('id_rol');
+        $permisoCat = PermisoCat::pluck('id_permiso');
+        return view('detalle-per-rol.create', compact('detallePerRol','rolCat','permisoCat'));
     }
 
     /**
@@ -46,7 +50,7 @@ class DetallePerRolController extends Controller
 
         $detallePerRol = DetallePerRol::create($request->all());
 
-        return redirect()->route('detalle-per-rols.index')
+        return redirect()->route('rol-cats.index')
             ->with('success', 'DetallePerRol created successfully.');
     }
 
@@ -72,8 +76,9 @@ class DetallePerRolController extends Controller
     public function edit($id)
     {
         $detallePerRol = DetallePerRol::find($id);
-
-        return view('detalle-per-rol.edit', compact('detallePerRol'));
+        $rolCat = RolCat::pluck('id_rol');
+        $permisoCat = PermisoCat::pluck('id_permiso');
+        return view('detalle-per-rol.edit', compact('detallePerRol','rolCat','permisoCat'));
     }
 
     /**

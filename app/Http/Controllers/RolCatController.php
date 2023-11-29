@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RolCat;
+use App\Models\DetallePerRol;
 use Illuminate\Http\Request;
 
 /**
@@ -60,8 +61,8 @@ class RolCatController extends Controller
     public function show($id)
     {
         $rolCat = RolCat::find($id);
-
-        return view('rol-cat.show', compact('rolCat'));
+        $detallePerRols = DetallePerRol::select()->where('id_rol','=', $id);
+        return view('rol-cat.show', compact('rolCat', 'detallePerRols'));
     }
 
     /**

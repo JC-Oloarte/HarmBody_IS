@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>
+    @include('detalle-per-rol.index')
 @endsection
 
 

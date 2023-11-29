@@ -16,7 +16,7 @@
                         <label class="form-label">Correo electrónico</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="name"
                                placeholder="mi_correo@email.com"
-                               autocomplete="off">
+                               autocomplete="on">
                         @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

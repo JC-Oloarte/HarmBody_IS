@@ -2,8 +2,11 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('id_permiso') }}</label>
     <div>
-        {{ Form::text('id_permiso', $detallePerRol->id_permiso, ['class' => 'form-control' .
-        ($errors->has('id_permiso') ? ' is-invalid' : ''), 'placeholder' => 'Id Permiso']) }}
+        <select class="form-control" name="id_permiso" id="id_permiso">
+            @foreach($permisoCat as $permisoCats)
+                <option value="{{ $permisoCats }}" >{{ $permisoCats }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_permiso', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">detallePerRol <b>id_permiso</b> instruction.</small>
     </div>
@@ -11,8 +14,11 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('id_rol') }}</label>
     <div>
-        {{ Form::text('id_rol', $detallePerRol->id_rol, ['class' => 'form-control' .
-        ($errors->has('id_rol') ? ' is-invalid' : ''), 'placeholder' => 'Id Rol']) }}
+        <select class="form-control" name="id_rol" id="id_rol">
+            @foreach($rolCat as $rolCats)
+                <option value="{{ $rolCats }}" >{{ $rolCats }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_rol', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">detallePerRol <b>id_rol</b> instruction.</small>
     </div>

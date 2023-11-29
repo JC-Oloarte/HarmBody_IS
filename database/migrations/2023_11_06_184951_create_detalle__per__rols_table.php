@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detalle_per_rol', function (Blueprint $table) {
+            $table->id('id_det_rol'); // Llave Primaria
             $table->unsignedBigInteger('id_permiso'); // Llave foránea a la tabla de permisos
             $table->unsignedBigInteger('id_rol'); // Llave foránea a la tabla de roles
             $table->tinyInteger('Estatus')->default(0); // Campo TINYINT con valor predeterminado 0
