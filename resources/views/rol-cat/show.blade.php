@@ -73,6 +73,7 @@
         </div>
     </div>
     @include('detalle-per-rol.index')
+    @include('permiso-cat.index2')
 @endsection
 
 

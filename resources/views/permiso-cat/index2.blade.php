@@ -1,3 +1,4 @@
+
     <!-- Page header -->
     <div class="page-header d-print-none">
         <div class="container-xl">
@@ -8,24 +9,8 @@
                         List
                     </div>
                     <h2 class="page-title">
-                        {{ __('Detalle Per Rol ') }}
+                        {{ __('Permiso Cat ') }}
                     </h2>
-                </div>
-                <!-- Page title actions -->
-                <div class="col-12 col-md-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                        <a href="{{ route('detalle-per-rols.create') }}" class="btn btn-primary d-none d-sm-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <line x1="12" y1="5" x2="12" y2="19"/>
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                            </svg>
-                            Create Detalle Per Rol
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -40,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Detalle Per Rol</h3>
+                            <h3 class="card-title">Permiso Cat</h3>
                         </div>
                         <div class="card-body border-bottom py-3">
                             <div class="d-flex">
@@ -77,9 +62,10 @@
                                             <polyline points="6 15 12 9 18 15"/>
                                         </svg>
                                     </th>
-
+                                    
 										<th>Id Permiso</th>
-										<th>Id Rol</th>
+										<th>Nombre</th>
+										<th>Fecha De Alta</th>
 										<th>Estatus</th>
 
                                     <th class="w-1"></th>
@@ -87,40 +73,18 @@
                                 </thead>
 
                                 <tbody>
-                                @forelse ($detallePerRols as $detallePerRol)
+                                @forelse ($permisoCats as $permisoCat)
                                     <tr>
                                         <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                   aria-label="Select detallePerRol"></td>
-                                        <td>{{ ++$i }}</td>
+                                                   aria-label="Select permisoCat"></td>
+                                        <td>{{ ++$j }}</td>
                                         
-											<td>{{ $detallePerRol->id_permiso }}</td>
-											<td>{{ $detallePerRol->id_rol }}</td>
-											<td>{{ $detallePerRol->Estatus }}</td>
+											<td>{{ $permisoCat->id_permiso }}</td>
+											<td>{{ $permisoCat->Nombre }}</td>
+											<td>{{ $permisoCat->Fecha_de_alta }}</td>
+											<td>{{ $permisoCat->Estatus }}</td>
 
-                                        <td>
-                                            <div class="btn-list flex-nowrap">
-                                                <div class="dropdown">
-                                                    <button class="btn dropdown-toggle align-text-top"
-                                                            data-bs-toggle="dropdown">
-                                                        Actions
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <form
-                                                            action="{{ route('detalle-per-rols.destroy',$detallePerRol->id_det_rol) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                    onclick="if(!confirm('Do you Want to Proceed?')){return false;}"
-                                                                    class="dropdown-item text-red"><i
-                                                                    class="fa fa-fw fa-trash"></i>
-                                                                Delete
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
                                 @empty
                                     <td>No Data Found</td>
@@ -128,6 +92,9 @@
                                 </tbody>
 
                             </table>
+                        </div>
+                       <div class="card-footer d-flex align-items-center">
+                            {!! $permisoCats->links('tablar::pagination') !!}
                         </div>
                     </div>
                 </div>

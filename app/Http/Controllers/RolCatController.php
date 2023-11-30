@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RolCat;
 use App\Models\DetallePerRol;
+use App\Models\PermisoCat;
 use Illuminate\Http\Request;
 
 /**
@@ -61,8 +62,13 @@ class RolCatController extends Controller
     public function show($id)
     {
         $rolCat = RolCat::find($id);
-        $detallePerRols = DetallePerRol::select()->where('id_rol','=', $id);
-        return view('rol-cat.show', compact('rolCat', 'detallePerRols'));
+        $detallePerRols = DetallePerRol::where('id_rol','=', $id)->paginate(10);
+        $permisoCats = permisoCat::select('permiso_cat.id_permiso', 'Nombre', 'Fecha_de_alta', 'permiso_cat.Estatus', 'permiso_cat.created_at', 'permiso_cat.updated_at')
+                                    ->join('detalle_per_rol','permiso_cat.id_permiso', '=', 'detalle_per_rol.id_permiso')
+                                    ->where('detalle_per_rol.id_rol','=', $id)->paginate(10);
+        return view('rol-cat.show', compact('rolCat', 'detallePerRols', 'permisoCats'))
+        ->with('i', (request()->input('page', 1) - 1) * $detallePerRols->perPage())
+        ->with('j', (request()->input('page', 1) - 1) * $permisoCats->perPage());
     }
 
     /**

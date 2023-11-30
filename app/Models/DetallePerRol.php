@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class DetallePerRol
  * 
- * @property id_det_rol
+ * @property $id_det_rol
  * @property $id_permiso
  * @property $id_rol
  * @property $Estatus
@@ -23,7 +23,7 @@ class DetallePerRol extends Model
 {
     
     static $rules = [
-        'id_det_rol'=> 'required',
+        'id_det_rol'=> 'sometimes',
 		'id_permiso' => 'required',
 		'id_rol' => 'required',
 		'Estatus' => 'required',
