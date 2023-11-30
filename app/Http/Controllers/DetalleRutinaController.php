@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetalleRutina;
+use App\Models\Rutina;
+use App\Models\Ejercicio;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +34,9 @@ class DetalleRutinaController extends Controller
     public function create()
     {
         $detalleRutina = new DetalleRutina();
-        return view('detalle-rutina.create', compact('detalleRutina'));
+        $rutina = Rutina::select('id_rutina', 'Nombre')->get();
+        $ejercicio = Ejercicio::select('id_ejercicio', 'Nombre')->get();
+        return view('detalle-rutina.create', compact('detalleRutina', 'rutina', 'ejercicio'));
     }
 
     /**
@@ -47,7 +51,7 @@ class DetalleRutinaController extends Controller
 
         $detalleRutina = DetalleRutina::create($request->all());
 
-        return redirect()->route('detalle-rutinas.index')
+        return redirect()->route('rutinas.index')
             ->with('success', 'DetalleRutina created successfully.');
     }
 
@@ -73,8 +77,9 @@ class DetalleRutinaController extends Controller
     public function edit($id)
     {
         $detalleRutina = DetalleRutina::find($id);
-
-        return view('detalle-rutina.edit', compact('detalleRutina'));
+        $rutina = Rutina::select('id_rutina', 'Nombre')->get();
+        $ejercicio = Ejercicio::select('id_ejercicio', 'Nombre')->get();
+        return view('detalle-rutina.edit', compact('detalleRutina', 'rutina','ejercicio'));
     }
 
     /**
@@ -90,7 +95,7 @@ class DetalleRutinaController extends Controller
 
         $detalleRutina->update($request->all());
 
-        return redirect()->route('detalle-rutinas.index')
+        return redirect()->route('rutinas.index')
             ->with('success', 'DetalleRutina updated successfully');
     }
 
@@ -103,7 +108,7 @@ class DetalleRutinaController extends Controller
     {
         $detalleRutina = DetalleRutina::find($id)->delete();
 
-        return redirect()->route('detalle-rutinas.index')
+        return redirect()->route('rutinas.index')
             ->with('success', 'DetalleRutina deleted successfully');
     }
 }

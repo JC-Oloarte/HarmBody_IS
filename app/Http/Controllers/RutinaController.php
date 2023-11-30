@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rutina;
+use App\Models\Paciente;
+use App\Models\Usuario;
+use App\Models\DetalleRutina;
+use App\Models\Ejercicio;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +36,9 @@ class RutinaController extends Controller
     public function create()
     {
         $rutina = new Rutina();
-        return view('rutina.create', compact('rutina'));
+        $paciente = Paciente::select('id_Paciente', 'Nombre')->get();
+        $usuario = Usuario::select('id_usuario', 'NomUsuario')->get();
+        return view('rutina.create', compact('rutina', 'paciente', 'usuario'));
     }
 
     /**
@@ -60,8 +66,13 @@ class RutinaController extends Controller
     public function show($id)
     {
         $rutina = Rutina::find($id);
-
-        return view('rutina.show', compact('rutina'));
+        $detalleRutinas = DetalleRutina::where('id_rutina','=', $id)->paginate(10);
+        $ejercicios = Ejercicio::select('ejercicios.id_ejercicio', 'Nombre', 'Descripcion', 'ejercicios.Estatus', 'ejercicios.created_at', 'ejercicios.updated_at')
+                                ->join('detalle_rutinas','ejercicios.id_ejercicio', '=', 'detalle_rutinas.id_ejercicio')
+                                ->where('detalle_rutinas.id_rutina','=', $id)->paginate(10);
+        return view('rutina.show', compact('rutina', 'detalleRutinas', 'ejercicios'))
+        ->with('i', (request()->input('page', 1) - 1) * $detalleRutinas->perPage())
+        ->with('j', (request()->input('page', 1) - 1) * $ejercicios->perPage());
     }
 
     /**
@@ -73,8 +84,9 @@ class RutinaController extends Controller
     public function edit($id)
     {
         $rutina = Rutina::find($id);
-
-        return view('rutina.edit', compact('rutina'));
+        $paciente = Paciente::select('id_Paciente', 'Nombre')->get();
+        $usuario = Usuario::select('id_usuario', 'NomUsuario')->get();
+        return view('rutina.edit', compact('rutina', 'paciente', 'usuario'));
     }
 
     /**

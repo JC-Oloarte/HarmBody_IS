@@ -28,10 +28,13 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_paciente') }}</label>
+    <label class="form-label">   {{ Form::label('Paciente') }}</label>
     <div>
-        {{ Form::text('id_paciente', $rutina->id_paciente, ['class' => 'form-control' .
-        ($errors->has('id_paciente') ? ' is-invalid' : ''), 'placeholder' => 'Id Paciente']) }}
+        <select class="form-control" name="id_paciente" id="id_paciente">
+            @foreach($paciente as $pacientes)
+                <option value="{{ $pacientes->id_Paciente }}" >{{ $pacientes->Nombre }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_paciente', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">rutina <b>id_paciente</b> instruction.</small>
     </div>
@@ -46,10 +49,13 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_usuario') }}</label>
+    <label class="form-label">   {{ Form::label('Usuario') }}</label>
     <div>
-        {{ Form::text('id_usuario', $rutina->id_usuario, ['class' => 'form-control' .
-        ($errors->has('id_usuario') ? ' is-invalid' : ''), 'placeholder' => 'Id Usuario']) }}
+    <select class="form-control" name="id_usuario" id="id_usuario">
+            @foreach($usuario as $usuarios)
+                <option value="{{ $usuarios->id_usuario }}" >{{ $usuarios->NomUsuario }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_usuario', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">rutina <b>id_usuario</b> instruction.</small>
     </div>
@@ -57,7 +63,7 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Fecha_Rutina') }}</label>
     <div>
-        {{ Form::text('Fecha_Rutina', $rutina->Fecha_Rutina, ['class' => 'form-control' .
+        {{ Form::date('Fecha_Rutina', $rutina->Fecha_Rutina, ['class' => 'form-control' .
         ($errors->has('Fecha_Rutina') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Rutina']) }}
         {!! $errors->first('Fecha_Rutina', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">rutina <b>Fecha_Rutina</b> instruction.</small>

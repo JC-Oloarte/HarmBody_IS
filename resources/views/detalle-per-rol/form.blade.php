@@ -1,10 +1,10 @@
 
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_permiso') }}</label>
+    <label class="form-label">   {{ Form::label('Permiso') }}</label>
     <div>
         <select class="form-control" name="id_permiso" id="id_permiso">
             @foreach($permisoCat as $permisoCats)
-                <option value="{{ $permisoCats }}" >{{ $permisoCats }}</option>
+                <option value="{{ $permisoCats->id_permiso }}" >{{ $permisoCats->Nombre }}</option>
             @endforeach
         </select>
         {!! $errors->first('id_permiso', '<div class="invalid-feedback">:message</div>') !!}
@@ -12,11 +12,11 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_rol') }}</label>
+    <label class="form-label">   {{ Form::label('Rol') }}</label>
     <div>
         <select class="form-control" name="id_rol" id="id_rol">
             @foreach($rolCat as $rolCats)
-                <option value="{{ $rolCats }}" >{{ $rolCats }}</option>
+                <option value="{{ $rolCats->id_rol }}" >{{ $rolCats->Nombre }}</option>
             @endforeach
         </select>
         {!! $errors->first('id_rol', '<div class="invalid-feedback">:message</div>') !!}

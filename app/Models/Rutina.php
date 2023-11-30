@@ -27,7 +27,7 @@ class Rutina extends Model
 {
     
     static $rules = [
-		'id_rutina' => 'required',
+		'id_rutina' => 'sometimes',
 		'Nombre' => 'required',
 		'Estatus' => 'required',
 		'id_paciente' => 'required',

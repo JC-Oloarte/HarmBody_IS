@@ -1,10 +1,3 @@
-@extends('tablar::page')
-
-@section('title')
-    Detalle Rutina
-@endsection
-
-@section('content')
     <!-- Page header -->
     <div class="page-header d-print-none">
         <div class="container-xl">
@@ -118,16 +111,9 @@
                                                         Actions
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('detalle-rutinas.show',$detalleRutina->id) }}">
-                                                            View
-                                                        </a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('detalle-rutinas.edit',$detalleRutina->id) }}">
-                                                            Edit
-                                                        </a>
+                                                        
                                                         <form
-                                                            action="{{ route('detalle-rutinas.destroy',$detalleRutina->id) }}"
+                                                            action="{{ route('detalle-rutinas.destroy',$detalleRutina->id_rutina_det) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -158,4 +144,3 @@
             </div>
         </div>
     </div>
-@endsection

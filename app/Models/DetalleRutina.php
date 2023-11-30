@@ -25,7 +25,7 @@ class DetalleRutina extends Model
 {
     
     static $rules = [
-		'id_rutina_det' => 'required',
+		'id_rutina_det' => 'sometimes',
 		'id_rutina' => 'required',
 		'id_ejercicio' => 'required',
 		'Series' => 'required',

@@ -84,6 +84,8 @@
             </div>
         </div>
     </div>
+    @include('detalle-rutina.index')
+    @include('ejercicio.index2')
 @endsection
 
 

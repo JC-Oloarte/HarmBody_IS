@@ -1,27 +1,25 @@
 
+
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_rutina_det') }}</label>
+    <label class="form-label">   {{ Form::label('Rutina') }}</label>
     <div>
-        {{ Form::text('id_rutina_det', $detalleRutina->id_rutina_det, ['class' => 'form-control' .
-        ($errors->has('id_rutina_det') ? ' is-invalid' : ''), 'placeholder' => 'Id Rutina Det']) }}
-        {!! $errors->first('id_rutina_det', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">detalleRutina <b>id_rutina_det</b> instruction.</small>
-    </div>
-</div>
-<div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_rutina') }}</label>
-    <div>
-        {{ Form::text('id_rutina', $detalleRutina->id_rutina, ['class' => 'form-control' .
-        ($errors->has('id_rutina') ? ' is-invalid' : ''), 'placeholder' => 'Id Rutina']) }}
+        <select class="form-control" name="id_rutina" id="id_rutina">
+            @foreach($rutina as $rutinas)
+                <option value="{{ $rutinas->id_rutina }}" >{{ $rutinas->Nombre }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_rutina', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">detalleRutina <b>id_rutina</b> instruction.</small>
     </div>
 </div>
 <div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('id_ejercicio') }}</label>
+    <label class="form-label">   {{ Form::label('Ejercicio') }}</label>
     <div>
-        {{ Form::text('id_ejercicio', $detalleRutina->id_ejercicio, ['class' => 'form-control' .
-        ($errors->has('id_ejercicio') ? ' is-invalid' : ''), 'placeholder' => 'Id Ejercicio']) }}
+        <select class="form-control" name="id_ejercicio" id="id_ejercicio">
+            @foreach($ejercicio as $ejercicios)
+                <option value="{{ $ejercicios->id_ejercicio }}" >{{ $ejercicios->Nombre }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('id_ejercicio', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">detalleRutina <b>id_ejercicio</b> instruction.</small>
     </div>

@@ -33,8 +33,8 @@ class DetallePerRolController extends Controller
     public function create()
     {
         $detallePerRol = new DetallePerRol();
-        $rolCat = RolCat::pluck('id_rol');
-        $permisoCat = PermisoCat::pluck('id_permiso');
+        $rolCat = RolCat::select('id_rol', 'Nombre')->get();
+        $permisoCat = PermisoCat::select('id_permiso', 'Nombre')->get();
         return view('detalle-per-rol.create', compact('detallePerRol','rolCat','permisoCat'));
     }
 
