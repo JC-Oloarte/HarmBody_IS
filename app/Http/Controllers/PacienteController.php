@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
+use App\Models\Rutina;
 use Illuminate\Http\Request;
 
 /**
@@ -60,8 +61,9 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::find($id);
-
-        return view('paciente.show', compact('paciente'));
+        $rutinas = Rutina::where('id_paciente','=', $id)->paginate(10);
+        return view('paciente.show', compact('paciente', 'rutinas'))
+        ->with('i', (request()->input('page', 1) - 1) * $rutinas->perPage());
     }
 
     /**

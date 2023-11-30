@@ -57,7 +57,7 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Fecha de nacimiento del paciente (Año-Mes-Dia).') }}</label>
     <div>
-        {{ Form::text('Fecha_Nac', $paciente->Fecha_Nac, ['class' => 'form-control' .
+        {{ Form::date('Fecha_Nac', $paciente->Fecha_Nac, ['class' => 'form-control' .
         ($errors->has('Fecha_Nac') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Nac']) }}
         {!! $errors->first('Fecha_Nac', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">Ingresa la fecha de nacimiento del paciente. Ej <b>1998-06-29</b>.</small>
