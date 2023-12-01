@@ -25,7 +25,6 @@ class Usuario extends Model
 {
     
     static $rules = [
-		'id_usuario' => 'required',
 		'NomUsuario' => 'required',
 		'Passw' => 'required',
 		'id_rol' => 'required',

@@ -43,15 +43,12 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        /*
         request()->validate(Usuario::$rules);
 
         $usuario = Usuario::create($request->all());
 
-        return redirect()->route('usuario.index')
+        return redirect()->route('/usuarios')
             ->with('success', 'Usuario created successfully.');
-        */
-        
 
     }
 
