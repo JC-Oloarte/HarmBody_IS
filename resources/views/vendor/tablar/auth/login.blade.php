@@ -13,9 +13,9 @@
                 <form action="{{route('login')}}" method="post" autocomplete="off" novalidate>
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">Correo electrónico</label>
+                        <label class="form-label">Nombre de usuario</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="name"
-                               placeholder="mi_correo@email.com"
+                               placeholder="Mi_Usuario12"
                                autocomplete="on">
                         @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
