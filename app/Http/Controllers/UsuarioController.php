@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -19,7 +20,6 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = Usuario::paginate(10);
-
         return view('usuario.index', compact('usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $usuarios->perPage());
     }
@@ -43,11 +43,24 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        //request()->validate(Usuario::$rules);
+
+        //$usuario = Usuario::create($request->all());
+
+         // Validar las reglas del modelo Usuario
         request()->validate(Usuario::$rules);
 
+         // Crear un usuario en el modelo Usuario
         $usuario = Usuario::create($request->all());
 
-        return redirect()->route('/usuarios')
+        // Crear un usuario en el modelo User con información común
+        $user = User::create([
+            'name' => $request->input('NomUsuario'),
+            'email' => $request->input('NomUsuario'), // Usando el mismo valor para name y email
+            'password' => bcrypt($request->input('Passw')),
+        ]);
+
+        return redirect()->route('usuarios.index')
             ->with('success', 'Usuario created successfully.');
 
     }

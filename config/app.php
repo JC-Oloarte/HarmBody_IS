@@ -4,7 +4,16 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
+    'providers' => [
+        // ...
+        App\Providers\GlobalVariableServiceProvider::class,
+    ],
+    'user_id' => 4,
+    'userViews' => [
+        2 => ['UserType1String1', 'UserType1String2'],
+        3 => ['UserType2String1', 'UserType2String2'],
+        4 => ['UserType3String1', 'UserType3String2'],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name

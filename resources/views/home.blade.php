@@ -2,5 +2,5 @@
 
 @section('content')
 
-
+{{config('app.user_type')}}
 @endsection

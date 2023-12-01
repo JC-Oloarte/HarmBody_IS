@@ -34,7 +34,8 @@ class VerificationController extends Controller
     public function redirectTo()
     {
         // Redireccionar a la ruta home con el id_user como parámetro
-        return route('home', ['id_user' => Auth::id()]);
+        return route('home', ['nombre_usuario' => Auth::id()]);
+        //return route('home');
     }
     /**
      * Create a new controller instance.

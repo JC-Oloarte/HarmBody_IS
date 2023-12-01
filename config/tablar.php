@@ -125,32 +125,39 @@ return [
     'menu' => [
         // Navbar items:
         [
+            'rolAutorizado' =>[2,3,4],
             'text' => 'Home',
             'icon' => 'ti ti-home',
             'url' => '/home'
         ],
 
         [
+            'rolAutorizado' =>[4,4,4],
             'text' => 'Usuarios',
             'url' => '/usuarios'
         ],
         [
+            'rolAutorizado' =>[4,4,4],
             'text' => 'Roles',
             'url' => '/rol-cats'
         ],
         [
+            'rolAutorizado' =>[4,4,4],
             'text' => 'Permisos',
             'url' => '/permiso-cats'
         ],
         [
+            'rolAutorizado' =>[2,3,3],
             'text' => 'Pacientes',
             'url' => '/pacientes'
         ],
         [
+            'rolAutorizado' =>[2,3,3],
             'text' => 'Rutinas',
             'url' => '/rutinas'
         ],
         [
+            'rolAutorizado' =>[3,3,3],
             'text' => 'Ejercicios',
             'url' => '/ejercicios'
         ],

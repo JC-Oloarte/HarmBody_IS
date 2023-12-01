@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Config;
 class HomeController extends Controller
 {
     /**
@@ -27,10 +27,9 @@ class HomeController extends Controller
      * @param  int  $id_user
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($id_user)
+    public function index()
     {
         // Lógica de la página de inicio
-
-        return view('home', compact('id_user'));
+        return view('home');
     }
 }
