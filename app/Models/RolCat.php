@@ -23,9 +23,7 @@ class RolCat extends Model
 {
     
     static $rules = [
-		'id_rol' => 'required',
 		'Nombre' => 'required',
-		'Fecha_de_alta' => 'required',
 		'Estatus' => 'required',
     ];
     protected $table= 'rol_cat';

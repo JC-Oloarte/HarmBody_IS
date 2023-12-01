@@ -11,11 +11,8 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <!-- Page pre-title -->
-                    <div class="page-pretitle">
-                        List
-                    </div>
                     <h2 class="page-title">
-                        {{ __('Rol Cat ') }}
+                        {{ __('Catálogo de roles') }}
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -30,7 +27,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Create Rol Cat
+                            Crear un rol
                         </a>
                     </div>
                 </div>
@@ -47,33 +44,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Rol Cat</h3>
-                        </div>
-                        <div class="card-body border-bottom py-3">
-                            <div class="d-flex">
-                                <div class="text-muted">
-                                    Show
-                                    <div class="mx-2 d-inline-block">
-                                        <input type="text" class="form-control form-control-sm" value="10" size="3"
-                                               aria-label="Invoices count">
-                                    </div>
-                                    entries
-                                </div>
-                                <div class="ms-auto text-muted">
-                                    Search:
-                                    <div class="ms-2 d-inline-block">
-                                        <input type="text" class="form-control form-control-sm"
-                                               aria-label="Search invoice">
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="card-title">Lista de roles</h3>
                         </div>
                         <div class="table-responsive min-vh-100">
                             <table class="table card-table table-vcenter text-nowrap datatable">
                                 <thead>
                                 <tr>
-                                    <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                           aria-label="Select all invoices"></th>
                                     <th class="w-1">No.
                                         <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +61,6 @@
                                         </svg>
                                     </th>
                                     
-										<th>Id Rol</th>
 										<th>Nombre</th>
 										<th>Fecha De Alta</th>
 										<th>Estatus</th>
@@ -97,14 +72,11 @@
                                 <tbody>
                                 @forelse ($rolCats as $rolCat)
                                     <tr>
-                                        <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                                   aria-label="Select rolCat"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $rolCat->id_rol }}</td>
 											<td>{{ $rolCat->Nombre }}</td>
 											<td>{{ $rolCat->Fecha_de_alta }}</td>
-											<td>{{ $rolCat->Estatus }}</td>
+                                            <td class="limite-texto">{{ $rolCat->Estatus == 1 ? 'Activo' : 'Inactivo' }}</td>
 
                                         <td>
                                             <div class="btn-list flex-nowrap">
