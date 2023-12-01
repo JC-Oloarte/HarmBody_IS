@@ -42,9 +42,10 @@ class LoginController extends Controller
 
     // Obtener el nombre del usuario desde la tabla usuarios
     $usuarioPerm = Usuario::where('NomUsuario', $userName)->value('id_rol');
+    //$valor = (int)$usuarioPerm->id_rol;
     Config::set('app.user_id', $usuarioPerm);
         // Redireccionar a la ruta home con el id_user como parámetro
-        return route('home');
+        return route('home', compact('usuarioPerm'));
         //return route('home');
     }
     /**
