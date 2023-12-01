@@ -22,9 +22,7 @@ class PermisoCat extends Model
 {
     
     static $rules = [
-		'id_permiso' => 'required',
 		'Nombre' => 'required',
-		'Fecha_de_alta' => 'required',
 		'Estatus' => 'required',
     ];
 

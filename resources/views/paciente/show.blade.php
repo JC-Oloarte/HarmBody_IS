@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-    @include('rutina.index2')
 @endsection
 
 
