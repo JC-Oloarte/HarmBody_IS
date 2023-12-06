@@ -14,7 +14,7 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Rol') }}</label>
     <div>
-        <select class="form-control" name="id_rol" id="id_rol" disabled>
+        <select class="form-control" name="id_rol" id="id_rol">
             @foreach($rolCat as $rolCats)
                 <option value="{{ $rolCats->id_rol }}" >{{ $rolCats->Nombre }}</option>
             @endforeach

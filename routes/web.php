@@ -33,6 +33,7 @@ Route::resource('/usuarios', UsuarioController::class);
 Route::resource('/ejercicios', App\Http\Controllers\EjercicioController::class);
 Route::resource('/pacientes', App\Http\Controllers\PacienteController::class);
 Route::resource('/detalle-rutinas', App\Http\Controllers\DetalleRutinaController::class);
+Route::get('/detalle-rutinas/create/{id}', 'App\Http\Controllers\DetalleRutinaController@create')->name('detalle-rutinas.create');
 Route::resource('/detalle-per-rols', App\Http\Controllers\DetallePerRolController::class);
 Route::get('/detalle-per-rols/create/{id}', 'App\Http\Controllers\DetallePerRolController@create')->name('detalle-per-rols.create');
 Route::resource('/permiso-cats', App\Http\Controllers\PermisoCatController::class);

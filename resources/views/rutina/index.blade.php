@@ -85,13 +85,12 @@
                                         </svg>
                                     </th>
                                     
-										<th>Id Rutina</th>
 										<th>Nombre</th>
-										<th>Estatus</th>
-										<th>Id Paciente</th>
+										<th>Paciente</th>
 										<th>Descripcion</th>
-										<th>Id Usuario</th>
+										<th>Usuario</th>
 										<th>Fecha Rutina</th>
+										<th>Estatus</th>
 
                                     <th class="w-1"></th>
                                 </tr>
@@ -104,13 +103,12 @@
                                                    aria-label="Select rutina"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $rutina->id_rutina }}</td>
 											<td>{{ $rutina->Nombre }}</td>
-											<td>{{ $rutina->Estatus }}</td>
-											<td>{{ $rutina->id_paciente }}</td>
+											<td>{{ $rutina->NomPaciente }}</td>
 											<td>{{ $rutina->Descripcion }}</td>
-											<td>{{ $rutina->id_usuario }}</td>
+											<td>{{ $rutina->NomUsuario }}</td>
 											<td>{{ $rutina->Fecha_Rutina }}</td>
+											<td class="limite-texto">{{ $rutina->Estatus == 1 ? 'Activo' : 'Inactivo' }}</td>
 
                                         <td>
                                             <div class="btn-list flex-nowrap">

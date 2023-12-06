@@ -18,15 +18,7 @@
         <small class="form-hint">rutina <b>Nombre</b> instruction.</small>
     </div>
 </div>
-<div class="form-group mb-3">
-    <label class="form-label">   {{ Form::label('Estatus') }}</label>
-    <div>
-        {{ Form::text('Estatus', $rutina->Estatus, ['class' => 'form-control' .
-        ($errors->has('Estatus') ? ' is-invalid' : ''), 'placeholder' => 'Estatus']) }}
-        {!! $errors->first('Estatus', '<div class="invalid-feedback">:message</div>') !!}
-        <small class="form-hint">rutina <b>Estatus</b> instruction.</small>
-    </div>
-</div>
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Paciente') }}</label>
     <div>
@@ -69,7 +61,15 @@
         <small class="form-hint">rutina <b>Fecha_Rutina</b> instruction.</small>
     </div>
 </div>
-
+<div class="form-group mb-3">
+    <label class="form-label">   {{ Form::label('Estatus') }}</label>
+    <div>
+        {{ Form::select('Estatus', ['1' => 'Activo', '0' => 'Inactivo'], $rutina->Estatus, ['class' => 'form-control' .
+        ($errors->has('Estatus') ? ' is-invalid' : '')]) }}
+        {!! $errors->first('Estatus', '<div class="invalid-feedback">:message</div>') !!}
+        <small class="form-hint">rutina <b>Estatus</b> instruction.</small>
+    </div>
+</div>
     <div class="form-footer">
         <div class="text-end">
             <div class="d-flex">

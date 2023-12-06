@@ -8,7 +8,7 @@ return [
         // ...
         App\Providers\GlobalVariableServiceProvider::class,
     ],
-    'user_id' => 4,
+    'user_id' => 3,
     'userViews' => [
         2 => ['UserType1String1', 'UserType1String2'],
         3 => ['UserType2String1', 'UserType2String2'],
