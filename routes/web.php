@@ -34,6 +34,7 @@ Route::resource('/ejercicios', App\Http\Controllers\EjercicioController::class);
 Route::resource('/pacientes', App\Http\Controllers\PacienteController::class);
 Route::resource('/detalle-rutinas', App\Http\Controllers\DetalleRutinaController::class);
 Route::resource('/detalle-per-rols', App\Http\Controllers\DetallePerRolController::class);
+Route::get('/detalle-per-rols/create/{id}', 'App\Http\Controllers\DetallePerRolController@create')->name('detalle-per-rols.create');
 Route::resource('/permiso-cats', App\Http\Controllers\PermisoCatController::class);
 Route::resource('/rol-cats', App\Http\Controllers\RolCatController::class);
 Route::resource('/rutinas', App\Http\Controllers\RutinaController::class);

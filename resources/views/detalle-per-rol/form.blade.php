@@ -14,7 +14,7 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Rol') }}</label>
     <div>
-        <select class="form-control" name="id_rol" id="id_rol">
+        <select class="form-control" name="id_rol" id="id_rol" disabled>
             @foreach($rolCat as $rolCats)
                 <option value="{{ $rolCats->id_rol }}" >{{ $rolCats->Nombre }}</option>
             @endforeach
@@ -26,8 +26,8 @@
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Estatus') }}</label>
     <div>
-        {{ Form::text('Estatus', $detallePerRol->Estatus, ['class' => 'form-control' .
-        ($errors->has('Estatus') ? ' is-invalid' : ''), 'placeholder' => 'Estatus']) }}
+        {{ Form::select('Estatus', ['1' => 'Activo', '0' => 'Inactivo'], $detallePerRol->Estatus, ['class' => 'form-control' .
+        ($errors->has('Estatus') ? ' is-invalid' : '')]) }}
         {!! $errors->first('Estatus', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">detallePerRol <b>Estatus</b> instruction.</small>
     </div>
