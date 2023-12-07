@@ -62,13 +62,11 @@
                                         </svg>
                                     </th>
                                     
-										<th>Id Rutina</th>
 										<th>Nombre</th>
-										<th>Estatus</th>
-										<th>Id Paciente</th>
 										<th>Descripcion</th>
-										<th>Id Usuario</th>
+										<th>Usuario</th>
 										<th>Fecha Rutina</th>
+										<th>Estatus</th>
 
                                     <th class="w-1"></th>
                                 </tr>
@@ -81,15 +79,44 @@
                                                    aria-label="Select rutina"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $rutina->id_rutina }}</td>
 											<td>{{ $rutina->Nombre }}</td>
-											<td>{{ $rutina->Estatus }}</td>
-											<td>{{ $rutina->id_paciente }}</td>
 											<td>{{ $rutina->Descripcion }}</td>
-											<td>{{ $rutina->id_usuario }}</td>
+											<td>{{ $rutina->NomUsuario }}</td>
 											<td>{{ $rutina->Fecha_Rutina }}</td>
+											<td class="limite-texto">{{ $rutina->Estatus == 1 ? 'Activo' : 'Inactivo' }}</td>
 
-                                        
+                                        <td>
+                                            <div class="btn-list flex-nowrap">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle align-text-top"
+                                                            data-bs-toggle="dropdown">
+                                                        Actions
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('rutinas.show',$rutina->id_rutina) }}">
+                                                            View
+                                                        </a>
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('rutinas.edit',$rutina->id_rutina) }}">
+                                                            Edit
+                                                        </a>
+                                                        <form
+                                                            action="{{ route('rutinas.destroy',$rutina->id_rutina) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                    onclick="if(!confirm('Do you Want to Proceed?')){return false;}"
+                                                                    class="dropdown-item text-red"><i
+                                                                    class="fa fa-fw fa-trash"></i>
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @empty
                                     <td>No Data Found</td>

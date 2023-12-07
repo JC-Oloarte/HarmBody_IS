@@ -28,13 +28,14 @@ class DetallePerRolController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $detallePerRol = new DetallePerRol();
-        $rolCat = RolCat::select('id_rol', 'Nombre')->get();
-        $permisoCat = PermisoCat::select('id_permiso', 'Nombre')->get();
+        $rolCat = RolCat::select('id_rol', 'Nombre')->where('id_rol','=',$id)->get();
+        $permisoCat = PermisoCat::select('id_permiso', 'Nombre')->where('Estatus','=', 1)->get();
         return view('detalle-per-rol.create', compact('detallePerRol','rolCat','permisoCat'));
     }
 
