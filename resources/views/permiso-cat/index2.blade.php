@@ -63,6 +63,7 @@
                                         </svg>
                                     </th>
                                     
+										<th>Id Permiso</th>
 										<th>Nombre</th>
 										<th>Fecha De Alta</th>
 										<th>Estatus</th>
@@ -78,9 +79,10 @@
                                                    aria-label="Select permisoCat"></td>
                                         <td>{{ ++$j }}</td>
                                         
+											<td>{{ $permisoCat->id_permiso }}</td>
 											<td>{{ $permisoCat->Nombre }}</td>
 											<td>{{ $permisoCat->Fecha_de_alta }}</td>
-											<td class="limite-texto">{{ $permisoCat->Estatus == 1 ? 'Activo' : 'Inactivo' }}</td>
+											<td>{{ $permisoCat->Estatus }}</td>
 
                                         
                                     </tr>

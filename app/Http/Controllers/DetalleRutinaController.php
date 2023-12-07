@@ -29,14 +29,13 @@ class DetalleRutinaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
         $detalleRutina = new DetalleRutina();
-        $rutina = Rutina::select('id_rutina', 'Nombre')->where('id_rutina','=',$id)->get();
-        $ejercicio = Ejercicio::select('id_ejercicio', 'Nombre')->where('Estatus','=', 1)->get();
+        $rutina = Rutina::select('id_rutina', 'Nombre')->get();
+        $ejercicio = Ejercicio::select('id_ejercicio', 'Nombre')->get();
         return view('detalle-rutina.create', compact('detalleRutina', 'rutina', 'ejercicio'));
     }
 

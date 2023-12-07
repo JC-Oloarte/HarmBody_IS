@@ -61,11 +61,7 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::find($id);
-        $rutinas = Rutina::select('rutinas.*', 'usuarios.NomUsuario')
-                            ->join('pacientes','rutinas.id_paciente', '=', 'pacientes.id_paciente')
-                            ->join('usuarios','rutinas.id_usuario', '=', 'usuarios.id_usuario')
-                            ->where('rutinas.id_paciente','=', $id)
-                            ->where('rutinas.Estatus','=', 1)->paginate(10);
+        $rutinas = Rutina::where('id_paciente','=', $id)->paginate(10);
         return view('paciente.show', compact('paciente', 'rutinas'))
         ->with('i', (request()->input('page', 1) - 1) * $rutinas->perPage());
     }
