@@ -1,5 +1,5 @@
 
-@if(config('app.user_id') == $item['rolAutorizado'][0] or config('app.user_id') == $item['rolAutorizado'][1] or config('app.user_id') == $item['rolAutorizado'][2])
+@if(config('app.view_id') == $item['rolAutorizado'][0] or config('app.view_id') == $item['rolAutorizado'][1] or config('app.view_id') == $item['rolAutorizado'][2])
 <li class="nav-item {{ $item['class'] }}" @isset($item['id']) id="{{ $item['id'] }}" @endisset>
     <a class="nav-link " @isset($item['target']) target="{{ $item['target'] }}" @endisset
     {!! $item['data-compiled'] ?? '' !!}

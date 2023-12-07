@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use App\MyGlobals;
 
 return [
     'providers' => [
         // ...
         App\Providers\GlobalVariableServiceProvider::class,
     ],
-    'user_id' => 3,
+    'view_id' => env('VIEW_ID', '118754561'),
+    'user_id'=>2,
     'userViews' => [
+        
         2 => ['UserType1String1', 'UserType1String2'],
         3 => ['UserType2String1', 'UserType2String2'],
         4 => ['UserType3String1', 'UserType3String2'],
