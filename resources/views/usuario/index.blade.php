@@ -85,10 +85,8 @@
                                         </svg>
                                     </th>
                                     
-										<th>Id Usuario</th>
 										<th>Nomusuario</th>
-										<th>Passw</th>
-										<th>Id Rol</th>
+										<th>Rol</th>
 										<th>Estatus</th>
 
                                     <th class="w-1"></th>
@@ -102,11 +100,9 @@
                                                    aria-label="Select usuario"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $usuario->id_usuario }}</td>
 											<td>{{ $usuario->NomUsuario }}</td>
-											<td>{{ $usuario->Passw }}</td>
-											<td>{{ $usuario->id_rol }}</td>
-											<td>{{ $usuario->Estatus }}</td>
+											<td>{{ $usuario->Nombre }}</td>
+											<td class="limite-texto">{{ $usuario->Estatus == 1 ? 'Activo' : 'Inactivo' }}</td>
 
                                         <td>
                                             <div class="btn-list flex-nowrap">
