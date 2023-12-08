@@ -16,7 +16,7 @@
                         <label class="form-label">Nombre de usuario</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="name"
                                placeholder="Mi_Usuario12"
-                               autocomplete="on">
+                               autocomplete="on" maxlength="25">
                         @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -29,7 +29,7 @@
                             <input type="password" name="password"
                                    class="form-control @error('password') is-invalid @enderror"
                                    placeholder="Mi_contraseña"
-                                   autocomplete="off">
+                                   autocomplete="off" maxlength="25">
                             <span class="input-group-text">
                     <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
