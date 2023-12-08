@@ -1,3 +1,25 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+            Bienvenido {{config('app.user_id')}}, ingresaste con el rol de {{config('app.user_rol')}}.
+        </div>
+        <button type="button" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</button>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+        
+  </div>
+
+
+<div class=" ms-lg-auto">
+    
+</div>
 <footer class="footer footer-transparent d-print-none">
     <div class="container-xl">
         <div class="row text-center align-items-center flex-row-reverse">

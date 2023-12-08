@@ -40,18 +40,25 @@
         <small class="form-hint">rutina <b>Descripcion</b> instruction.</small>
     </div>
 </div>
+
+
+
+
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Usuario') }}</label>
     <div>
-    <select class="form-control" name="id_usuario" id="id_usuario">
-            @foreach($usuario as $usuarios)
-                <option value="{{ $usuarios->id_usuario }}" >{{ $usuarios->NomUsuario }}</option>
-            @endforeach
+        <select class="form-control" name="id_usuario" id="id_usuario">
+                <option value="{{ config('app.numUser') }}" >{{ config('app.user_id')}}</option>
         </select>
         {!! $errors->first('id_usuario', '<div class="invalid-feedback">:message</div>') !!}
         <small class="form-hint">rutina <b>id_usuario</b> instruction.</small>
     </div>
 </div>
+
+
+
+
 <div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('Fecha_Rutina') }}</label>
     <div>

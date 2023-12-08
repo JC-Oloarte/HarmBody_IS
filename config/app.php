@@ -10,7 +10,9 @@ return [
         App\Providers\GlobalVariableServiceProvider::class,
     ],
     'view_id' => env('VIEW_ID', '118754561'),
-    'user_id'=>2,
+    'user_id'=> env('USER_ID', '118754561'),
+    'user_rol'=> env('USER_ROL', '118754561'),
+    'numUser'=> env('NUMUSER', '118754561'),
     'userViews' => [
         
         2 => ['UserType1String1', 'UserType1String2'],

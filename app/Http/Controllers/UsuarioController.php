@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\RolCat;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class UsuarioController
@@ -33,7 +37,8 @@ class UsuarioController extends Controller
     public function create()
     {
         $usuario = new Usuario();
-        return view('usuario.create', compact('usuario'));
+        $roles = RolCat::all();
+        return view('usuario.create', compact('usuario','roles'));
     }
 
     /**
@@ -42,6 +47,8 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+     /*
     public function store(Request $request)
     {
         //request()->validate(Usuario::$rules);
@@ -50,10 +57,8 @@ class UsuarioController extends Controller
 
          // Validar las reglas del modelo Usuario
         request()->validate(Usuario::$rules);
-
          // Crear un usuario en el modelo Usuario
         $usuario = Usuario::create($request->all());
-
         // Crear un usuario en el modelo User con información común
         $user = User::create([
             'name' => $request->input('NomUsuario'),
@@ -65,7 +70,77 @@ class UsuarioController extends Controller
             ->with('success', 'Usuario created successfully.');
 
     }
+*/
+public function store(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'CorrUsuario' => 'required|email|max:30',
+        // ... otras reglas de validación ...
+    ]);
 
+    // Verificar si la validación ha fallado
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->with('error', 'El correo ingresado no es correcto.')
+            ->withInput();
+    }
+    $validator = Validator::make($request->all(), [
+        'CorrUsuario' => [
+            'required',
+            'email',
+            'max:30',
+            Rule::unique('users', 'email'),
+            
+        ]
+        // ... otras reglas de validación ...
+    ]);
+
+    // Verificar si la validación ha fallado
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->with('error', 'el correo electrónico ya se encuentra registrado.')->withInput();;
+    }
+    $validator = Validator::make($request->all(), [
+        'NomUsuario' => [
+            Rule::unique('usuarios', 'NomUsuario'),
+        ]
+        // ... otras reglas de validación ...
+    ]);
+    if ($validator->fails()) {
+        return redirect()->back()
+            ->with('error', 'El nombre de usuario ya se encuentra registrado.')->withInput();;
+    }
+    try {
+
+        
+        // Validar las reglas del modelo Usuario
+        request()->validate(Usuario::$rules);
+
+        // Crear un usuario en el modelo Usuario
+
+        $usario = Usuario::create([
+            'NomUsuario' => $request->input('NomUsuario'),
+		    'Passw' => bcrypt($request->input('Passw')),
+		    'id_rol' => $request->input('id_rol'),
+		    'Estatus' => $request->input('Estatus'),
+        ]);
+
+        // Crear un usuario en el modelo User con información común
+        $user = User::create([
+            'name' => $request->input('NomUsuario'),
+            'email' => $request->input('CorrUsuario'), // Usando el mismo valor para name y email
+            'password' => bcrypt($request->input('Passw')),
+        ]);
+
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario creado con éxtio.');
+
+    } catch (\Exception $e) {
+        // Manejar el error aquí
+        return redirect()->back()
+            ->with('error', 'Error al crear usuario, comuniquese con el administrador.'.$e->getMessage());
+    }
+}
     /**
      * Display the specified resource.
      *
@@ -88,8 +163,9 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $usuario = Usuario::find($id);
-
-        return view('usuario.edit', compact('usuario'));
+        $roles = RolCat::all();
+        $user = User::all();
+        return view('usuario.edit', compact('usuario','roles','user'));
     }
 
     /**
@@ -116,9 +192,24 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = Usuario::find($id)->delete();
 
-        return redirect()->route('usuarios.index')
-            ->with('success', 'Usuario deleted successfully');
+        try {
+            $usuario = Usuario::find($id)->delete();
+
+            return redirect()->route('usuarios.index')
+                ->with('success', 'Usuario eliminado con éxito');
+
+        } catch (\Exception $e) {
+            // Manejar el error aquí
+            Log::error('Error al ejecutar sentencia SQL: ' . $e->getMessage());
+    
+            return redirect()->back()
+                ->with('error', 'Error al eliminar, contacte con el administrador');
+        }
+        
+
+
+
+        
     }
 }
