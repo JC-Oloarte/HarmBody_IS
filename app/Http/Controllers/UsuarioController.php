@@ -19,7 +19,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::paginate(10);
+        $usuarios = Usuario::select('usuarios.*', 'rol_cat.Nombre')
+                            ->join('rol_cat','rol_cat.id_rol', '=', 'usuarios.id_rol')->paginate(10);
         return view('usuario.index', compact('usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $usuarios->perPage());
     }
