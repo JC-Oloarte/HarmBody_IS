@@ -4,6 +4,7 @@ use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +41,9 @@ Route::resource('/permiso-cats', App\Http\Controllers\PermisoCatController::clas
 Route::resource('/rol-cats', App\Http\Controllers\RolCatController::class);
 Route::resource('/rutinas', App\Http\Controllers\RutinaController::class);
 Route::resource('/usuariodetalle', App\Http\Controllers\UsuarioDetalleController::class);
+Route::get('/shop', 'App\Http\Controllers\CartController@shop')->name('shop');
+Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart.index');
+Route::post('/add', 'App\Http\Controllers\CartController@add')->name('cart.store');
+Route::post('/update', 'App\Http\Controllers\CartController@update')->name('cart.update');
+Route::post('/remove', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
+Route::post('/clear', 'App\Http\Controllers\CartController@clear')->name('cart.clear');
